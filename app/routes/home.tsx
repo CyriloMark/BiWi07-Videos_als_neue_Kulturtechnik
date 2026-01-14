@@ -1,13 +1,17 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { Home as H } from "~/pages/home";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        { title: "New React Router App" },
-        { name: "description", content: "Welcome to React Router!" },
+        { title: "Home | Die neue Kulturtechnik - Videobeiträge" },
+        {
+            name: "description",
+            content: "Die neue Kulturtechnik - Videobeiträge!",
+        },
+        { author: "Cyrill Mark" },
     ];
 }
 
 export default function Home() {
-    return <Welcome />;
+    return <H />;
 }
