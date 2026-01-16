@@ -7,4 +7,7 @@ export default defineConfig(({ mode }) => ({
     plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
     base:
         mode === "production" ? "/BiWi07-Videos_als_neue_Kulturtechnik/" : "/",
+    build: {
+        outDir: "dist",
+    },
 }));
