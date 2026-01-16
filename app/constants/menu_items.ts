@@ -15,9 +15,17 @@ export const menu_items = {
         title: "Prüfungsanforderungen",
         href: "#exam",
     },
-    IMPRESUM: {
+    TRANSCRIPT: {
         id: 2,
-        title: "Impressum",
-        href: "#impresum",
+        title: "Transkript",
+        href: "#transcript",
     },
-};
+} as const satisfies Record<string, MenuItem>;
+
+export type MenuKey = keyof typeof menu_items;
+export type MenuItemType = (typeof menu_items)[MenuKey];
+
+// function navigateTo(menu: MenuKey) {
+//     const item = menu_items[menu];
+//     console.log(item.href);
+// }

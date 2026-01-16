@@ -1,4 +1,6 @@
 import {
+    BrowserRouter,
+    HashRouter,
     isRouteErrorResponse,
     Links,
     Meta,
@@ -48,8 +50,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
     );
 }
 
+const isBrowser = typeof document !== "undefined";
+const Router = isBrowser
+    ? import.meta.env.DEV
+        ? BrowserRouter
+        : HashRouter
+    : ({ children }: { children: React.ReactNode }) => <>{children}</>;
+
 export default function App() {
-    return <Outlet />;
+    return (
+        <Router>
+            <Outlet />
+        </Router>
+    );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
